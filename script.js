@@ -1,20 +1,26 @@
-var particles = [];
-var myCcolors = ["red" , "green", "yellow", "blue"];
+let particles = [];
+let myColors = ["red", "green", "yellow", "blue"];
 
 function setup() {
-var cnv = creatCanvas(1200,1200);
+  let cnv = createCanvas(1200, 1200); 
   cnv.position(300, 0, "fixed");
+  
+  // Create some particles
+  for (let i = 0; i < 100; i++) {
+    particles.push([random(width), random(height)]);
+  }
 }
-//creation od a particles
-function creatParticle(){
-for (var i = 0; i < particles.length; i++) {
-  var c = random(myColors);
-  fill(c);
-  circle(particles[i][0], particles[i][1], 20);
-}
+
+function createParticle() { 
+  for (let i = 0; i < particles.length; i++) {
+    let c = random(myColors); 
+    fill(c);
+    noStroke(); 
+    circle(particles[i][0], particles[i][1], 20);
+  }
 }
 
 function draw() {
-background("#730201");
-  creatParticle();
+  background("#730201");
+  createParticle();
 }
